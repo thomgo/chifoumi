@@ -29,6 +29,23 @@ function askPlayerChoice() {
   return choice;
 }
 
+function generateChoice() {
+  var randomIndex = Math.floor(Math.random() * Math.floor(choices.length));
+  return choices[randomIndex];
+}
+
+function findWinner(playerChoice, computerChoice) {
+  if(playerChoice === computerChoice) {
+    return false;
+  }
+  else if(winningPairs.includes(playerChoice + "/" + computerChoice)) {
+    return "player";
+  }
+  else {
+    return "computer";
+  }
+}
+
 // Code logic
 alert("Bonjour et bienvenue. Vous allez jouer au jeu du chifoumi sur votre navigateur grâce à JavaScript");
 var playerName = askPlayerName();
@@ -37,4 +54,18 @@ alert("Parfait " + playerName + " prêt à jouer ?");
 while (scores["player"] < 3 && scores["computer"] < 3) {
   var playerChoice = askPlayerChoice();
   alert("Vous avez choisi " + playerChoice);
+
+  alert("L'ordinateur joue");
+  var computerChoice = generateChoice();
+  alert("L'ordinateur a choisi " + computerChoice);
+
+  var winner = findWinner(playerChoice, computerChoice);
+  if(winner) {
+    scores[winner] += 1;
+    alert("Le gagnant est " + (winner === "player" ? playerName : "l'ordinateur"));
+    alert(playerName + " : " + scores["player"] + "\nordinateur : " + scores["computer"]);
+  }
+  else {
+    alert("Match nul !");
+  }
 }
