@@ -46,6 +46,16 @@ function findWinner(playerChoice, computerChoice) {
   }
 }
 
+function replay() {
+  do {
+    var answer = prompt("Voulez-vous rejouer (oui ou non)")
+  } while (!["oui", "non"].includes(answer));
+  if(answer === "oui") {
+    scores["player"] = 0;
+    scores["computer"] = 0;
+  }
+}
+
 // Code logic
 alert("Bonjour et bienvenue. Vous allez jouer au jeu du chifoumi sur votre navigateur grâce à JavaScript");
 var playerName = askPlayerName();
@@ -67,5 +77,10 @@ while (scores["player"] < 3 && scores["computer"] < 3) {
   }
   else {
     alert("Match nul !");
+  }
+
+  if(scores["player"] === 3 || scores["computer"] === 3) {
+    alert(scores["player"] === 3 ? "Vous avez gagné" : "Vous avez perdu");
+    replay();
   }
 }
