@@ -21,7 +21,20 @@ function askPlayerName() {
   return name;
 }
 
+function askPlayerChoice() {
+  do {
+    var choice = prompt("Faites votre choix entre " + choices.join()).toLowerCase();
+  }
+  while (!choices.includes(choice));
+  return choice;
+}
+
 // Code logic
 alert("Bonjour et bienvenue. Vous allez jouer au jeu du chifoumi sur votre navigateur grâce à JavaScript");
 var playerName = askPlayerName();
 alert("Parfait " + playerName + " prêt à jouer ?");
+
+while (scores["player"] < 3 && scores["computer"] < 3) {
+  var playerChoice = askPlayerChoice();
+  alert("Vous avez choisi " + playerChoice);
+}
