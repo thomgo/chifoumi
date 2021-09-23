@@ -19,7 +19,7 @@ function askPlayerName() {
   var name = prompt("Veuillez indiquer votre nom avant de jouer");
   // We check that the name respects the rules, while not we show a prompt
   while (name.length < 2 || name.length > 20) {
-    var name = prompt("Votre nom doit être compris entre 2 et 20 caractères");
+    name = prompt("Votre nom doit être compris entre 2 et 20 caractères");
   }
   return name;
 }

@@ -47,7 +47,7 @@ alert("L'ordinateur a choisi " + computerChoice);
 var winner = findWinner(playerChoice, computerChoice);
 // If there is a winner
 if(winner) {
-  // Display the rigth winner using ternary condition for shorter syntax
+  // Display the rigth winner
   alert("Le gagnant est : " + winner);
 }
 // If winner is false
